@@ -44,7 +44,6 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Css Modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) - For styles
 
