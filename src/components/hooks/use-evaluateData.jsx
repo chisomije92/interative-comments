@@ -1,6 +1,6 @@
 import { useState } from "react";
 import shortid from "shortid";
-import TimeData from "../../eval-time/TimeData";
+import timeData from "../../eval-time/TimeData";
 import juliusomo from "../../images/avatars/image-juliusomo.png";
 
 const useEvaluateData = (ctx, defaultValue, replyingToEdited) => {
@@ -47,7 +47,7 @@ const useEvaluateData = (ctx, defaultValue, replyingToEdited) => {
     const replyObj = {
       id: shortid.generate(),
       content: content,
-      createdAtDate: TimeData(),
+      createdAtDate: timeData(),
       score: 0,
       replyingTo: repliedTo,
       user: {

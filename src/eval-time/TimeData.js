@@ -1,4 +1,4 @@
-const TimeData = () => {
+const timeData = () => {
   return new Intl.DateTimeFormat("en-GB", {
     dateStyle: "medium",
     timeStyle: "short",
@@ -6,4 +6,4 @@ const TimeData = () => {
   }).format(new Date());
 };
 
-export default TimeData;
+export default timeData;
