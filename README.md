@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/chisomije92/interative-comments)
-- Live Site URL: [Live Site URL](https://interactive-comment.netlify.app/)
+- Solution URL: [https://github.com/chisomije92/interative-comments](https://github.com/chisomije92/interative-comments)
+- Live Site URL: [https://interactive-comment.netlify.app](https://interactive-comment.netlify.app/)
 
 ## My process
 
