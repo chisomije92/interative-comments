@@ -1,0 +1,23 @@
+.reply {
+  grid-area: c;
+  max-width: 39rem;
+  text-align: initial;
+
+  margin-top: -0.6rem;
+  margin-right: 1.7rem;
+  margin-left: -0.8rem;
+  font-size: 1rem;
+  justify-self: start;
+}
+
+.reply b {
+  font-weight: 700;
+  color: var(--Moderate-blue);
+}
+
+@media screen and (max-width: 777px) {
+  .reply {
+    font-size: 12.3px;
+    margin-left: 1rem;
+  }
+}

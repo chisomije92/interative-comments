@@ -1,0 +1,48 @@
+@import url(/src/variables.css);
+
+.buttonDiv {
+  grid-area: b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 5.6rem;
+  width: 2.25rem;
+  background: var(--Very-light-gray);
+  margin: 1.8rem 1rem 1rem 1.2rem;
+
+  border-radius: 8px;
+}
+
+.buttonDiv > button {
+  border: none;
+  outline: none;
+  background: var(--Very-light-gray);
+}
+
+.sub-group {
+  grid-area: a;
+  display: flex;
+  margin-top: 1.8rem;
+}
+
+.sub-group > div + div {
+  margin-top: 0.4rem;
+}
+
+.sub-group > div:last-child {
+  margin-left: 1rem;
+}
+
+.control--buttons button {
+  outline: none;
+  border: none;
+  background: var(--White);
+  font-weight: 700;
+  transform: translateY(-0.2rem);
+}
+
+@media screen and (max-width: 777) {
+  .control--buttons button {
+    font-size: 1px;
+  }
+}

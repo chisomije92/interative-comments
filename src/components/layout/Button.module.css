@@ -1,0 +1,14 @@
+@import url(/src/variables.css);
+
+.button-number > b {
+  color: var(--Moderate-blue);
+}
+
+:is(.plus-button, .minus-button) {
+  font-weight: 700;
+  color: var(--Light-grayish-blue);
+}
+
+:is(.plus-button:hover, .minus-button:hover) {
+  color: var(--Moderate-blue);
+}

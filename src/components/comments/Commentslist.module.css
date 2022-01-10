@@ -1,0 +1,24 @@
+@import url(/src/variables.css);
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin-top: 1.4rem;
+}
+
+section {
+  background: var(--White);
+  border-radius: 9px;
+}
+
+@media screen and (max-width: 777px) {
+  ul {
+    margin: auto;
+  }
+
+  ul li {
+    margin-top: 0.6rem;
+  }
+}

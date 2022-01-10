@@ -1,0 +1,130 @@
+@import url(/src/variables.css);
+
+.comment__image {
+  margin: 1.9rem 1.2rem 1rem 1.3rem;
+}
+
+.comment__form {
+  display: flex;
+  gap: 20px;
+  width: 90%;
+  height: 80%;
+  margin: 1.7rem 1.3rem -1.4rem -0.7rem;
+}
+
+.comment__textarea {
+  width: 120%;
+  height: 65%;
+  border-style: 1px;
+  border-radius: 6px;
+  margin-right: -4px;
+  outline: 0;
+  resize: none;
+  padding: 0.7rem 1.1rem;
+}
+
+.comment__textarea:focus {
+  outline: 0.5px solid;
+}
+
+::placeholder {
+  font-weight: 300;
+  color: var(--Grayish-Blue);
+}
+
+.button {
+  width: 18%;
+  height: 2.3rem;
+  outline: none;
+  border: none;
+  background: var(--Moderate-blue);
+  color: var(--White);
+  border-radius: 5px;
+}
+
+.button:is(:hover, :focus) {
+  opacity: 0.6;
+}
+
+.form--reply-edit {
+  display: flex;
+
+  flex-direction: column;
+  gap: 19px;
+}
+
+.form--reply-edit textarea {
+  width: 33.9rem;
+  height: 80px;
+  margin-left: 6px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
+  overflow-y: scroll;
+  padding: 0.7rem 1.2rem 0.7rem 1.1em;
+}
+
+.form--reply-edit textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.form--reply-edit button {
+  width: 78px;
+  height: 40px;
+  transform: translateX(32rem);
+  margin-top: -0.5rem;
+}
+
+.form--reply-altered textarea {
+  width: 38.5rem;
+}
+
+.form--reply-altered button {
+  transform: translateX(36.5rem);
+}
+
+@media screen and (max-width: 777px) {
+  .form--reply-edit button {
+    margin-left: 9px;
+    transform: translateX(0);
+  }
+
+  .form--reply-edit textarea {
+    width: 65vw;
+    font-size: 12.5px;
+  }
+
+  .form--reply-altered textarea {
+    width: 70vw;
+  }
+}
+@media screen and (max-width: 553px) {
+  .form--reply-edit textarea {
+    width: 60vw;
+    font-size: 12.5px;
+  }
+
+  .form--reply-altered textarea {
+    width: 64vw;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .form--reply-edit textarea {
+    width: 53vw;
+  }
+
+  .form--reply-altered textarea {
+    width: 58vw;
+  }
+}
+
+@media screen and (max-width: 357px) {
+  .main-comment textarea {
+    width: 200px;
+  }
+
+  .form--reply-edit textarea {
+    width: 177px;
+  }
+}

@@ -1,0 +1,155 @@
+.grid-container {
+  display: grid;
+  grid-gap: 6px;
+  grid-template-columns: 0.98fr 7fr 0.8fr 0.2fr;
+  grid-template-areas:
+    "b a r ."
+    "b c c ."
+    ". c c .";
+  height: 155px;
+  font-weight: 100;
+  color: var(--Grayish-Blue);
+}
+
+.grid-container_mod {
+  grid-template-columns: 1.1fr 7fr 2.5fr 0.2fr;
+}
+
+.reply--section {
+  display: -ms-grid;
+  display: grid;
+
+  grid-template-columns: 1.33fr 7fr 1.8fr 0fr;
+
+  grid-template-areas:
+    "b a r r"
+    "b c c ."
+    "b c c .";
+  color: var(--Grayish-Blue);
+}
+
+.current-user-grid {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: 1.5fr 7fr 2.8fr 0.2fr;
+  grid-template-areas:
+    "b a r r"
+    "b c c ."
+    ". c c .";
+  height: 145px;
+  font-weight: 100;
+  color: var(--Grayish-Blue);
+}
+
+.reply--section__mod {
+  grid-template-columns: 1fr 7fr max-content 0.2fr;
+  height: min-content;
+}
+
+@media screen and (max-width: 794px) {
+  .grid-container_mod {
+    grid-template-columns: 0.98fr 7fr 1.9fr 0.2fr;
+  }
+}
+
+@media screen and (max-width: 777px) {
+  .grid-container {
+    grid-template-columns: 1fr 7fr max-content auto;
+    grid-template-areas:
+      "a a a a"
+      "c c c c"
+      "b . r r";
+
+    width: 80vw;
+    height: min-content;
+    font-size: 13px;
+    margin: auto;
+  }
+
+  .reply--section {
+    position: relative;
+    grid-template-columns: 1fr 7fr max-content auto;
+    grid-template-areas:
+      "a a a a"
+      "c c c c"
+      "b . r r";
+    width: 76vw;
+    height: min-content;
+    font-size: 13px;
+    margin-top: 3px;
+    margin-left: -5.6rem;
+
+    word-break: break-all;
+  }
+
+  .current-user-grid {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: 1fr 7fr max-content auto;
+    grid-template-areas:
+      "a a a a"
+      "c c c c"
+      "b . r r";
+    width: 76vw;
+    height: min-content;
+    font-size: 13px;
+
+    margin-left: -5.6rem;
+  }
+
+  .reply--section__mod {
+    margin-left: -5.6rem;
+    width: 76vw;
+  }
+
+  .reply--section__altered {
+    margin-left: initial;
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 657px) {
+  .current-user-grid {
+    grid-template-columns: 1fr 7fr max-content auto;
+  }
+}
+
+@media screen and (max-width: 478px) {
+  :is(.reply--section, .current-user-grid) {
+    margin-left: -5.8rem;
+  }
+}
+
+@media screen and (max-width: 444px) {
+  .reply--section__mod {
+    grid-template-columns: 1fr 1fr 11rem auto;
+  }
+
+  :is(.reply--section, .current-user-grid) {
+    margin-left: -5.9rem;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  :is(.reply--section, .current-user-grid) {
+    margin-left: -5.6rem;
+  }
+}
+
+@media screen and (max-width: 358px) {
+  .grid-container {
+    width: 250px;
+  }
+
+  .grid-container_mod {
+    grid-template-columns: 0.98fr 1fr 6.8fr 4.2fr;
+  }
+
+  :is(.current-user-grid, .reply--section, .reply--section__mod) {
+    width: 240px;
+  }
+
+  .reply--section__altered {
+    width: 257px;
+  }
+}

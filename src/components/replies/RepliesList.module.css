@@ -1,0 +1,44 @@
+@import url(/src/variables.css);
+
+.replies--ul {
+  margin-left: 40px;
+  margin-top: -0.4rem;
+  border-left: 2px solid rgba(211, 203, 203, 0.3);
+}
+
+.replies--ul > li {
+  margin-top: 1.6rem;
+}
+
+@media screen and (max-width: 777px) {
+  .replies--ul {
+    margin-left: 0.8rem;
+    margin-top: 0.9rem;
+  }
+
+  .replies--ul li {
+    margin: 0.8rem -8.4rem 0 4rem;
+  }
+}
+
+@media screen and (max-width: 654px) {
+  .replies--ul {
+    margin-left: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 553px) {
+  .replies--ul {
+    margin-left: 0.3rem;
+  }
+}
+
+@media screen and (max-width: 429px) {
+  .replies--ul {
+    margin-left: -0.1rem;
+  }
+
+  .replies--ul li {
+    margin-right: 0.1rem;
+  }
+}

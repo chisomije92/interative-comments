@@ -1,0 +1,111 @@
+@import url(/src/variables.css);
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  position: fixed;
+  transform: translate(70%, 100%);
+  width: 310px;
+  background-color: var(--White);
+  padding: 1rem 0.8rem 1.5rem 1.6rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+}
+
+.modal h3 {
+  color: var(--Dark-blue);
+}
+
+.modal p {
+  word-spacing: -2px;
+  line-height: 1.3;
+  color: var(--Grayish-Blue);
+
+  padding-right: 1.04rem;
+}
+.modal button {
+  color: var(--White);
+  background: var(--White);
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+
+  outline: none;
+  border: none;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+}
+.modal button:first-of-type {
+  background: var(--Grayish-Blue);
+}
+
+.modal button:nth-of-type(2) {
+  background: var(--Soft-Red);
+}
+
+@media screen and (max-width: 776px) {
+  .modal {
+    transform: translate(50%, 70%);
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .modal {
+    transform: translate(30%, 70%);
+  }
+}
+
+@media screen and (max-width: 447px) {
+  .modal {
+    transform: translate(15%, 90%);
+  }
+}
+
+@media screen and (max-width: 427px) {
+  .modal {
+    transform: translate(5%, 70%);
+  }
+}
+
+@media screen and (max-width: 398px) {
+  .modal {
+    transform: translate(2%, 70%);
+  }
+}
+@media screen and (max-width: 382px) {
+  .modal {
+    width: 274px;
+    transform: translate(4%, 100%);
+  }
+  .modal button {
+    padding: 0.8rem 1.1rem;
+  }
+
+  .modal p {
+    padding-right: 1.04rem;
+  }
+}
+
+@media screen and (max-width: 341px) {
+  .modal {
+    width: min-content;
+    transform: translate(24%, 90%);
+  }
+}
+
+@media screen and (max-width: 290px) {
+  .modal {
+    transform: translate(9%, 90%);
+  }
+}

@@ -1,0 +1,138 @@
+.comment--container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  height: 9rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.reply-form--container {
+  grid-area: c;
+  height: 208px;
+  text-align: initial;
+  font-size: 1rem;
+  margin-top: -0.55rem;
+}
+
+.section-mod {
+  width: 95%;
+  height: 25vh;
+  margin: 0.3rem 0 2rem 42px;
+}
+
+@media screen and (max-width: 777px) {
+  .comment--container {
+    width: 80vw;
+    margin: auto;
+    margin-top: 0.4rem;
+  }
+
+  .comment--container div :first-child {
+    margin-bottom: -5.8rem;
+    margin-left: -3px;
+  }
+
+  .comment--container form {
+    height: 69px;
+  }
+  .comment--container textarea {
+    margin: -1.1rem -5.9rem 0 -3.1rem;
+    font-size: 12.5px;
+    height: 59px;
+  }
+
+  .comment--container button {
+    width: 80px;
+    margin-top: 4.6rem;
+    margin-right: -5px;
+  }
+
+  .comment--container__mod {
+    width: 76vw;
+    margin-left: -5.6rem;
+  }
+  .section-mod {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80vw;
+    height: 28vh;
+    margin-left: 2.5rem;
+    margin-top: 12px;
+    margin-bottom: 2rem;
+  }
+
+  .section-mod div :first-child {
+    margin-bottom: -6.7rem;
+    margin-left: 2px;
+    width: 30px;
+  }
+
+  .section-mod form {
+    width: 62vw;
+    height: 70px;
+    margin-left: 5.2rem;
+    margin-top: -2.7rem;
+  }
+
+  .section-mod textarea {
+    margin-left: -3.8rem;
+  }
+
+  .section-mod form button {
+    margin-top: 5.5rem;
+  }
+
+  .reply-form--container {
+    height: 12rem;
+    font-size: 12.5px;
+    margin-left: 21px;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .reply-form--container {
+    width: 55vw;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .section-mod form {
+    width: 58vw;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .section-mod form {
+    width: 54vw;
+  }
+}
+
+@media screen and (max-width: 367px) {
+  .section-mod form {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 358px) {
+  .comment--container {
+    width: 250px;
+  }
+
+  .comment--container__mod {
+    width: 240px;
+  }
+
+  .section-mod {
+    width: 256px;
+  }
+
+  .section-mod textarea {
+    margin-right: -9rem;
+    margin-left: -4rem;
+  }
+
+  .section-mod form {
+    width: 100px;
+  }
+}
