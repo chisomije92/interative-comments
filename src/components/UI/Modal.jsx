@@ -1,4 +1,4 @@
-import { Fragment } from "react/cjs/react.development";
+import { Fragment } from "react";
 import reactDom from "react-dom";
 import classes from "./Modal.module.css";
 
