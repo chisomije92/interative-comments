@@ -45,7 +45,7 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - [React](https://reactjs.org/) - JS library
-- [Css Modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) - For styles
+- [CSS Modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) - For styles
 
 
 ### What I learned
