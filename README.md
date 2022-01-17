@@ -54,7 +54,7 @@ This project aided me in gaining practice with the the use of the React library.
 
 
 ### Continued development
-I aim to delve further and acquire more knowledge and practice with use of NextJs framework and Typescript. 
+I aim to delve further and acquire more knowledge and practice with use of NextJs framework and Typescript.
 
 
 
