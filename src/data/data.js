@@ -1,12 +1,7 @@
-import amyRobson from "../images/avatars/image-amyrobson.png";
-import maxBlagun from "../images/avatars/image-maxblagun.png";
-import ramsesmiron from "../images/avatars/image-ramsesmiron.png";
-import juliusomo from "../images/avatars/image-juliusomo.png";
-
 const data = {
   currentUser: {
     image: {
-      png: juliusomo,
+      png: "../images/avatars/image-juliusomo.png",
       webp: "./images/avatars/image-juliusomo.webp",
     },
     username: "juliusomo",
@@ -20,7 +15,7 @@ const data = {
       score: 12,
       user: {
         image: {
-          png: amyRobson,
+          png: "./images/avatars/image-amyrobson.png",
           webp: "./images/avatars/image-amyrobson.webp",
           alt: "Image of Amy Robson",
         },
@@ -36,7 +31,7 @@ const data = {
       score: 5,
       user: {
         image: {
-          png: maxBlagun,
+          png: "../images/avatars/image-maxblagun.png",
           webp: "./images/avatars/image-maxblagun.webp",
           alt: "Image of Max Blagun",
         },
@@ -52,7 +47,7 @@ const data = {
           replyingTo: "maxblagun",
           user: {
             image: {
-              png: ramsesmiron,
+              png: "../images/avatars/image-ramsesmiron.png",
               webp: "./images/avatars/image-ramsesmiron.webp",
               alt: "Image of Ram Sesmiron",
             },
@@ -68,7 +63,7 @@ const data = {
           replyingTo: "ramsesmiron",
           user: {
             image: {
-              png: juliusomo,
+              png: "../images/avatars/image-juliusomo.png",
               webp: "./images/avatars/image-juliusomo.webp",
               alt: "image of Julius Omo",
             },
