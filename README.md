@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/chisomije92/interative-comments](https://github.com/chisomije92/interative-comments)
+- Live Site URL: [https://interactive-comment.netlify.app](https://interactive-comment.netlify.app/)
 
 ## My process
 
@@ -43,13 +43,15 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - [React](https://reactjs.org/) - JS library
-- [Css Modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) - For styles
+- [CSS Modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) - For styles
 
 ### What I learned
 
 This project aided me in gaining practice with the the use of the React library. Most particularly, it gave me an opportunity to solidify my knowledge on React context API, Custom Hooks and useReducer Hook.
 
 ### Continued development
+
+I aim to delve further and acquire more knowledge and practice with use of NextJs framework and Typescript.
 
 I aim to delve further and acquire more knowledge and practice with use of NextJs framework and Typescript.
 
