@@ -74,7 +74,6 @@ const CommentListItem = (props) => {
             alt={props.alt}
             username={props.username}
             createdAtDate={props.createdAtDate}
-            // onClick={toggleReplyBox}
             onEdit={toggleEditBoxHandler}
             onDelete={deleteData}
             onIncrease={increaseScoreHandler.bind(null, props.id)}
