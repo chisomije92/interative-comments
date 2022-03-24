@@ -5,7 +5,7 @@ import classes from "./Commentslist.module.css";
 import juliusomo from "../../images/avatars/image-juliusomo.png";
 import shortid from "shortid";
 import TimeData from "../../eval-time/TimeData";
-import Comment from "./comment-box/Comment";
+import Comment from "./comment-box/Comment.jsx";
 import Card from "../UI/Card";
 import CommentListItem from "./CommentListItem";
 import DataContext from "../../store/data-context";

@@ -4,7 +4,7 @@ import ReplyItem from "../replies/ReplyItem";
 import ReplyItemUser from "../replies/ReplyItemUser";
 import ReplyContent from "../replies/ReplyContent";
 import Card from "../UI/Card";
-import Comment from "./comment-box/Comment";
+import Comment from "./comment-box/Comment.jsx";
 
 import DataContext from "../../store/data-context";
 import Modal from "../UI/Modal";
