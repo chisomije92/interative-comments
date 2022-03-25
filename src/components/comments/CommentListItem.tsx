@@ -4,19 +4,33 @@ import ReplyItem from "../replies/ReplyItem";
 import ReplyItemUser from "../replies/ReplyItemUser";
 import ReplyContent from "../replies/ReplyContent";
 import Card from "../UI/Card";
-import Comment from "./comment-box/Comment.jsx";
+import Comment from "./comment-box/Comment";
 
 import DataContext from "../../store/data-context";
 import Modal from "../UI/Modal";
 import classes from "../replies/ReplyItem.module.css";
 import useEvaluateData from "../hooks/use-evaluateData";
 
-const CommentListItem = (props) => {
+const CommentListItem: React.FC<{
+  defaultValue?: string;
+  isCurrentUser: boolean;
+  content: string;
+  id: string | number;
+  score: number;
+  src: string;
+  alt: string;
+  username: string;
+  createdAt: string;
+  createdAtDate: string;
+  image: string;
+}> = (props) => {
   const dataCtx = useContext(DataContext);
   const {
     showReplyBox,
     showEditBox,
     showModal,
+    reply,
+    setReply,
     toggleEditBox: toggleEditBoxHandler,
     toggleReplyBox: toggleReplyBoxHandler,
     deleteData,
@@ -57,9 +71,11 @@ const CommentListItem = (props) => {
       {showReplyBox && (
         <Card>
           <Comment
+            value={reply}
+            onChange={(e) => setReply(e.target.value)}
             image={props.image}
             onSubmit={submitReplyHandler.bind(null, props.username, props.id)}
-            defaultValue={`${props.defaultValue}`}
+            // defaultValue={`${props.defaultValue}`}
           >
             REPLY
           </Comment>
@@ -97,8 +113,10 @@ const CommentListItem = (props) => {
           />
           <Card newClass>
             <Comment
+              value={reply}
+              onChange={(e) => setReply(e.target.value)}
               alterClass
-              defaultValue={`${props.content}`}
+              // defaultValue={`${props.content}`}
               onUpdate={updateCommentHandler.bind(null, null, props.id)}
             >
               UPDATE

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import ReplyItem from "./ReplyItem";
 import Modal from "../UI/Modal";
 import ReplyContent from "./ReplyContent";
-import Comment from "../comments/comment-box/Comment.jsx";
+import Comment from "../comments/comment-box/Comment.tsx";
 import CardGrid from "../UI/CardGrid";
 import Card from "../UI/Card";
 import ReplyItemUser from "./ReplyItemUser";

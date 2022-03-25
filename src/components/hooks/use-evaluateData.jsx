@@ -4,6 +4,7 @@ import timeData from "../../eval-time/TimeData";
 import juliusomo from "../../images/avatars/image-juliusomo.png";
 
 const useEvaluateData = (ctx, defaultValue, replyingToEdited) => {
+  const [reply, setReply] = useState("");
   const [showReplyBox, setShowReplyBox] = useState(false);
   const [showEditBox, setShowEditBox] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -38,15 +39,15 @@ const useEvaluateData = (ctx, defaultValue, replyingToEdited) => {
 
   const submitData = (repliedTo, replyId, event) => {
     event.preventDefault();
-    content = event.target[0].value;
-    if (content.trim().length === 0 || content === defaultValue) {
+    // content = event.target[0].value;
+    if (reply.length === 0 || reply === " ") {
       return null;
     }
 
-    content = content.replace(defaultValue, "");
+    // content = content.replace(defaultValue, "");
     const replyObj = {
       id: shortid.generate(),
-      content: content,
+      content: reply,
       createdAtDate: timeData(),
       score: 0,
       replyingTo: repliedTo,
@@ -62,6 +63,7 @@ const useEvaluateData = (ctx, defaultValue, replyingToEdited) => {
 
     ctx.addReply(replyObj, replyId);
     setShowReplyBox(false);
+    setReply("");
   };
 
   const updateComment = (content, id, event) => {
@@ -106,6 +108,8 @@ const useEvaluateData = (ctx, defaultValue, replyingToEdited) => {
     showReplyBox,
     showEditBox,
     showModal,
+    reply,
+    setReply,
     toggleEditBox,
     toggleReplyBox,
     deleteData,
