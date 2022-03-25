@@ -4,7 +4,8 @@ import timeData from "../../eval-time/TimeData";
 import juliusomo from "../../images/avatars/image-juliusomo.png";
 
 const useEvaluateData = (ctx, defaultValue, replyingToEdited) => {
-  const [reply, setReply] = useState("");
+  const [enteredValue, setEnteredValue] = useState("");
+  const [updatedReply, setUpdatedReply] = useState("");
   const [showReplyBox, setShowReplyBox] = useState(false);
   const [showEditBox, setShowEditBox] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -37,17 +38,55 @@ const useEvaluateData = (ctx, defaultValue, replyingToEdited) => {
   };
   let content;
 
+  const submitCommentDataHandler = (event) => {
+    event.preventDefault();
+    // console.log(event.target[0].value);
+    // setEnteredValue(event.target[0].value);
+
+    if (
+      enteredValue.trim().length < 0 ||
+      enteredValue === " " ||
+      enteredValue === ""
+    ) {
+      return null;
+    }
+
+    const commentObj = {
+      id: shortid.generate(),
+
+      content: enteredValue,
+      createdAtDate: timeData(),
+      score: 0,
+      user: {
+        image: {
+          png: juliusomo,
+          webp: "./images/avatars/image-juliusomo.webp",
+          alt: "image of Julius Omo",
+        },
+        username: "juliusomo",
+      },
+      replies: [],
+    };
+    ctx.addComment(commentObj);
+    setUpdatedReply(enteredValue);
+    setEnteredValue("");
+  };
+
   const submitData = (repliedTo, replyId, event) => {
     event.preventDefault();
     // content = event.target[0].value;
-    if (reply.length === 0 || reply === " ") {
+    if (
+      enteredValue.length === 0 ||
+      enteredValue === " " ||
+      enteredValue === ""
+    ) {
       return null;
     }
 
     // content = content.replace(defaultValue, "");
     const replyObj = {
       id: shortid.generate(),
-      content: reply,
+      content: enteredValue,
       createdAtDate: timeData(),
       score: 0,
       replyingTo: repliedTo,
@@ -63,19 +102,35 @@ const useEvaluateData = (ctx, defaultValue, replyingToEdited) => {
 
     ctx.addReply(replyObj, replyId);
     setShowReplyBox(false);
-    setReply("");
+    // setReply((prev) => prev + reply);
+    // setUpdatedReply((prev) => [...prev, reply]);
+    // setReply("");
   };
 
-  const updateComment = (content, id, event) => {
+  const updateComment = (id, event) => {
     event.preventDefault();
-    content = event.target[0].value;
-    if (content.trim().length === 0) {
+    // setReply((prev) => prev + reply);
+    // setUpdatedReply(reply);
+    // content = event.target[0].value;
+    if (updatedReply.trim().length === 0) {
       return null;
     }
-    ctx.updateData(content, id);
 
+    ctx.updateData(updatedReply, id);
+    // setUpdatedReply((prev) => [...prev, reply]);
     setShowEditBox(false);
   };
+
+  // const updateComment = (content, id, event) => {
+  //   event.preventDefault();
+  //   content = event.target[0].value;
+  //   if (content.trim().length === 0) {
+  //     return null;
+  //   }
+  //   ctx.updateData(content, id);
+
+  //   setShowEditBox(false);
+  // };
 
   const updateReply = (content, id, subId, event) => {
     event.preventDefault();
@@ -108,14 +163,17 @@ const useEvaluateData = (ctx, defaultValue, replyingToEdited) => {
     showReplyBox,
     showEditBox,
     showModal,
-    reply,
-    setReply,
+    enteredValue,
+    updatedReply,
+    setUpdatedReply,
+    setEnteredValue,
     toggleEditBox,
     toggleReplyBox,
     deleteData,
     cancelDelete,
     confirmDeleteComment,
     confirmDeleteReply,
+    submitCommentDataHandler,
     submitData,
     updateComment,
     updateReply,

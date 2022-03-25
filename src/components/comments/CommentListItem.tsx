@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CardGrid from "../UI/CardGrid";
 import ReplyItem from "../replies/ReplyItem";
 import ReplyItemUser from "../replies/ReplyItemUser";
@@ -29,8 +29,10 @@ const CommentListItem: React.FC<{
     showReplyBox,
     showEditBox,
     showModal,
-    reply,
-    setReply,
+    enteredValue,
+    updatedReply,
+    setEnteredValue,
+    setUpdatedReply,
     toggleEditBox: toggleEditBoxHandler,
     toggleReplyBox: toggleReplyBoxHandler,
     deleteData,
@@ -41,6 +43,10 @@ const CommentListItem: React.FC<{
     increaseCommentScore: increaseScoreHandler,
     decreaseCommentScore: decreaseScoreHandler,
   } = useEvaluateData(dataCtx, props.defaultValue);
+
+  useEffect(() => {
+    setUpdatedReply(props.content);
+  }, [props.content, setUpdatedReply]);
 
   return (
     <>
@@ -71,8 +77,8 @@ const CommentListItem: React.FC<{
       {showReplyBox && (
         <Card>
           <Comment
-            value={reply}
-            onChange={(e) => setReply(e.target.value)}
+            value={enteredValue}
+            onChange={(e) => setEnteredValue(e.target.value)}
             image={props.image}
             onSubmit={submitReplyHandler.bind(null, props.username, props.id)}
             // defaultValue={`${props.defaultValue}`}
@@ -113,11 +119,30 @@ const CommentListItem: React.FC<{
           />
           <Card newClass>
             <Comment
-              value={reply}
-              onChange={(e) => setReply(e.target.value)}
+              // value={props.content ? props.content : reply}
+              // value={
+              //   updatedReply.length < 1
+              //     ? props.content.length <= 3
+              //       ? updatedReply
+              //       : props.content
+              //     : updatedReply
+              // }
+              // value={
+              //   props.content.length <= 1
+              //     ? updatedReply
+              //     : props.content + updatedReply
+              // }
+              value={updatedReply}
+              // onChange={(e) => setReply((prev) => `${prev} ${e.target.value}`)}
+              // onChange={(e) => {
+              //   props.content.length <= 8
+              //     ? setUpdatedReply(e.target.value)
+              //     : setUpdatedReply(e.target.value);
+              // }}
+              onChange={(e) => setUpdatedReply(e.target.value)}
               alterClass
-              // defaultValue={`${props.content}`}
-              onUpdate={updateCommentHandler.bind(null, null, props.id)}
+              defaultValue={`${props.content}`}
+              onUpdate={updateCommentHandler.bind(null, props.id)}
             >
               UPDATE
             </Comment>

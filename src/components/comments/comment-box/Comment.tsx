@@ -7,11 +7,12 @@ import classes from "./Comment.module.css";
 // }
 
 const Comment: React.FC<{
+  content?: string;
   value?: string;
   modifyClass?: boolean;
   alterClass?: boolean;
   mainComment?: boolean;
-  image?: any;
+  image?: string;
   width?: string;
 
   // onSubmit?: React.FormEventHandler<
@@ -63,7 +64,7 @@ const Comment: React.FC<{
           className={classes["comment__textarea"]}
           placeholder="Add a Comment..."
           // defaultValue={props.defaultValue ? props.defaultValue : null}
-          value={props.value}
+          value={props.value ? props.value : ""}
           onChange={props.onChange ? props.onChange : null}
         />
 
