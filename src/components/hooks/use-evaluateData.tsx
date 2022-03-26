@@ -2,8 +2,24 @@ import { useState } from "react";
 import shortid from "shortid";
 import timeData from "../../eval-time/TimeData";
 import juliusomo from "../../images/avatars/image-juliusomo.png";
+import {
+  DataCtxMethodsType,
+  ReplyObjType,
+} from "../interface-store/Interfaces";
 
-const useEvaluateData = (ctx, defaultValue, replyingToEdited) => {
+const useEvaluateData = (
+  // ctx : DataContextType,
+  // ctx: {
+  //   deleteData: (id: string, subId?: string) => void;
+  //   addComment: (commentObj: CommentObjType) => void;
+  //   addReply: (replyObj: ReplyObjType, replyId: string) => void;
+  //   increaseScore(id: string, subId?: string): void;
+  //   decreaseScore(id: string, subId?: string): void;
+  //   updateData(updatedContent: string, id: string, subId?: string): void;
+  // },
+  ctx: DataCtxMethodsType,
+  replyingToEdited?: string
+) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [updatedReply, setUpdatedReply] = useState("");
   const [showReplyBox, setShowReplyBox] = useState(false);
@@ -36,7 +52,7 @@ const useEvaluateData = (ctx, defaultValue, replyingToEdited) => {
     ctx.deleteData(id, subId);
     setShowModal(false);
   };
-  let content;
+  // let content;
 
   const submitCommentDataHandler = (event) => {
     event.preventDefault();
@@ -84,7 +100,7 @@ const useEvaluateData = (ctx, defaultValue, replyingToEdited) => {
     }
 
     // content = content.replace(defaultValue, "");
-    const replyObj = {
+    const replyObj: ReplyObjType = {
       id: shortid.generate(),
       content: enteredValue,
       createdAtDate: timeData(),

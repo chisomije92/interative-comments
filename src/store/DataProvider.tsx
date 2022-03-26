@@ -1,8 +1,42 @@
 import data from "../data/data";
 import DataContext from "./data-context";
 import { useEffect, useReducer } from "react";
+import {
+  CommentObjType,
+  DataCtxType,
+  DataObjType,
+  ReplyObjType,
+} from "../components/interface-store/Interfaces";
 
-const defaultDataState = {
+const defaultDataState: {
+  data: DataObjType;
+  // data: {
+  //   currentUser: {
+  //     image: {
+  //       png: string;
+  //       webp: string;
+  //     };
+  //     username: string;
+  //   };
+  // comments: {
+  //   id: number | string;
+  //   content: string;
+  //   createdAt: string;
+  //   createdAtDate?: string;
+  //   score: number;
+  //   user: {
+  //     image: {
+  //       png: string;
+  //       webp: string;
+  //       alt: string;
+  //     };
+  //     username: string;
+  //   };
+  //   replies: ReplyObjType[];
+  // }[];
+  // comments: CommentObjType[];
+  // };
+} = {
   data: data,
 };
 
@@ -20,7 +54,19 @@ const initializer = (initialValue = defaultDataState) => {
   }
 };
 
-const dataReducer = (state, action) => {
+const dataReducer = (
+  state: { data: DataObjType },
+  action: {
+    type: string;
+    id?: string;
+    subId?: string;
+    reply?: ReplyObjType;
+    updatedContent?: string;
+    commentData?: CommentObjType;
+    replyData?: ReplyObjType;
+  }
+) => {
+  console.log(state);
   switch (action.type) {
     case "ADD_REPLY": {
       let updatedData = Object.assign({}, state.data);
@@ -160,7 +206,7 @@ const dataReducer = (state, action) => {
   }
 };
 
-const DataProvider = (props) => {
+const DataProvider: React.FC = (props) => {
   const [dataState, dispatchDataAction] = useReducer(
     dataReducer,
     defaultDataState,
@@ -180,27 +226,27 @@ const DataProvider = (props) => {
     });
   };
 
-  const addCommentToData = (commentData) => {
+  const addCommentToData = (commentData: CommentObjType) => {
     dispatchDataAction({ type: "ADD_COMMENT", commentData: commentData });
   };
 
-  const updateData = (updatedContent, id, subId) => {
+  const updateData = (updatedContent: string, id: string, subId: string) => {
     dispatchDataAction({ type: "UPDATE", updatedContent, id, subId });
   };
 
-  const increaseScore = (id, subId) => {
+  const increaseScore = (id: string, subId: string) => {
     dispatchDataAction({ type: "INCREASE_SCORE", id, subId });
   };
 
-  const decreaseScore = (id, subId) => {
+  const decreaseScore = (id: string, subId: string) => {
     dispatchDataAction({ type: "DECREASE_SCORE", id, subId });
   };
 
-  const deleteData = (id, subId) => {
+  const deleteData = (id: string, subId: string) => {
     dispatchDataAction({ type: "DELETE", id, subId });
   };
 
-  const dataContext = {
+  const dataContext: DataCtxType = {
     data: dataState.data,
     addReply: addReplyToData,
     addComment: addCommentToData,
