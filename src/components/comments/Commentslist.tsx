@@ -9,36 +9,7 @@ import CommentListItem from "./CommentListItem";
 import DataContext from "../../store/data-context";
 import formatTime from "../../eval-time/FormatTime";
 import useEvaluateData from "../hooks/use-evaluateData";
-
-interface ReplyObjType {
-  id: string;
-  content: string;
-  createdAtDate: string;
-  replyingTo: string;
-  score: number;
-  user: {
-    alt: string;
-    png: string;
-    webp: string;
-  };
-}
-
-interface CommentObjType {
-  id: number | string;
-  content: string;
-  createdAt?: string;
-  createdAtDate: string;
-  score: number;
-  user: {
-    image: {
-      png: string;
-      webp: string;
-      alt: string;
-    };
-    username: string;
-  };
-  replies: ReplyObjType[];
-}
+import { CommentObjType } from "../interface-store/Interfaces";
 
 const CommentsList: React.FC = () => {
   const dataCtx = useContext(DataContext);
