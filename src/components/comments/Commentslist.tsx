@@ -7,7 +7,7 @@ import Comment from "./comment-box/Comment";
 import Card from "../UI/Card";
 import CommentListItem from "./CommentListItem";
 import DataContext from "../../store/data-context";
-import formatTime from "../../eval-time/FormatTime";
+import formatTime from "../../eval-time-helpers/FormatTime";
 import useEvaluateData from "../hooks/use-evaluateData";
 import { CommentObjType } from "../interface-store/Interfaces";
 

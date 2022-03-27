@@ -91,7 +91,6 @@ const ReplyListItem: React.FC<{
             image={props.image}
             value={enteredValue}
             onChange={(e) => setEnteredValue(e.target.value)}
-            // defaultValue={props.defaultValue}
             onSubmit={submitReplyHandler.bind(
               null,
               props.username,

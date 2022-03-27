@@ -1,6 +1,6 @@
-const formatTime = (date) => {
+const formatTime = (date: string) => {
   let diff = new Date().getTime() - new Date(date).getTime();
-  let dateContent;
+  let dateContent: string;
   if (diff < 1000) {
     dateContent = `right now`;
     return dateContent;

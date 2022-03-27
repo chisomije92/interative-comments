@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import timeData from "../../eval-time/TimeData";
+import timeData from "../../eval-time-helpers/TimeData";
 import juliusomo from "../../images/avatars/image-juliusomo.png";
 import {
   DataCtxMethodsType,
@@ -42,7 +42,6 @@ const useEvaluateData = (
     ctx.deleteData(id, subId);
     setShowModal(false);
   };
-  // let content;
 
   const submitCommentDataHandler = (
     event: React.FormEvent<HTMLFormElement>
@@ -83,7 +82,7 @@ const useEvaluateData = (
     event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
-    // content = event.target[0].value;
+
     if (
       enteredValue.length === 0 ||
       enteredValue === " " ||

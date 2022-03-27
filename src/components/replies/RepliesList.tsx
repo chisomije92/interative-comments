@@ -1,5 +1,5 @@
 import classes from "./RepliesList.module.css";
-import formatTime from "../../eval-time/FormatTime";
+import formatTime from "../../eval-time-helpers/FormatTime";
 import ReplyListItem from "./ReplyListItem";
 import { ReplyObjType } from "../interface-store/Interfaces";
 
