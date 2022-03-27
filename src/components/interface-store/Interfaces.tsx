@@ -10,12 +10,13 @@ export interface DataObjType {
 }
 
 export interface DataCtxMethodsType {
-  addReply(reply: ReplyObjType, id: string): void;
+  addReply(reply: ReplyObjType, id: number): void;
+  addSubReply(reply: ReplyObjType, id: number, subId?: number): void;
   addComment(comment: CommentObjType): void;
-  updateData(updatedContent: string, id: string, subId?: string): void;
-  increaseScore(id: string, subId?: string): void;
-  decreaseScore(id: string, subId?: string): void;
-  deleteData(id: string, subId?: string): void;
+  updateData(updatedContent: string, id: number, subId?: number): void;
+  increaseScore(id: number, subId?: number): void;
+  decreaseScore(id: number, subId?: number): void;
+  deleteData(id: number, subId?: number): void;
 }
 
 export interface DataCtxType extends DataCtxMethodsType {
@@ -40,8 +41,9 @@ export interface DataCtxType extends DataCtxMethodsType {
 }
 
 export interface ReplyObjType {
-  id: string | number;
+  id: number;
   content: string;
+  createdAt?: string;
   createdAtDate?: string;
   replyingTo: string;
   score: number;
@@ -56,7 +58,7 @@ export interface ReplyObjType {
 }
 
 export interface CommentObjType {
-  id: number | string;
+  id: number;
   content: string;
   createdAt?: string;
   createdAtDate?: string;

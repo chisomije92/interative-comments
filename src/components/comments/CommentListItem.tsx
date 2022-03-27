@@ -15,7 +15,7 @@ const CommentListItem: React.FC<{
   defaultValue?: string;
   isCurrentUser: boolean;
   content: string;
-  id: string | number;
+  id: number;
   score: number;
   src: string;
   alt: string;
@@ -133,12 +133,6 @@ const CommentListItem: React.FC<{
               //     : props.content + updatedReply
               // }
               value={updatedReply}
-              // onChange={(e) => setReply((prev) => `${prev} ${e.target.value}`)}
-              // onChange={(e) => {
-              //   props.content.length <= 8
-              //     ? setUpdatedReply(e.target.value)
-              //     : setUpdatedReply(e.target.value);
-              // }}
               onChange={(e) => setUpdatedReply(e.target.value)}
               alterClass
               defaultValue={`${props.content}`}

@@ -5,7 +5,22 @@ import { ReactComponent as EditIcon } from "../../images/icon-edit.svg";
 
 import classes from "./ReplyItem.module.css";
 
-const ReplyItemUser = (props) => {
+const ReplyItemUser: React.FC<{
+  isCurrentUser?: boolean;
+  content?: string;
+  id?: string | number;
+  score: number;
+  src: string;
+  alt: string;
+  username: string;
+  createdAt?: string;
+  createdAtDate: string;
+  className?: string;
+  onIncrease?: (id: string) => void;
+  onEdit: () => void;
+  onDelete: () => void;
+  onDecrease?: () => void;
+}> = (props) => {
   return (
     <>
       <div className={classes["buttonDiv"]}>

@@ -58,33 +58,47 @@ const dataReducer = (
   state: { data: DataObjType },
   action: {
     type: string;
-    id?: string;
-    subId?: string;
+    id?: number;
+    subId?: number;
     reply?: ReplyObjType;
     updatedContent?: string;
     commentData?: CommentObjType;
     replyData?: ReplyObjType;
   }
 ) => {
-  console.log(state);
   switch (action.type) {
     case "ADD_REPLY": {
       let updatedData = Object.assign({}, state.data);
 
+      let { comments } = updatedData;
+      // console.log(comments);
+      const existingIdIndex = comments.findIndex(
+        (item) => item.id === action.id
+      );
+
+      comments[existingIdIndex].replies.push(action.reply);
+
+      // if (action.subId) {
+      // const existingSubIdIndex = comments.findIndex(
+      //   (item) => item.id === action.id
+      // );
+
+      // comments[existingSubIdIndex].replies.push(action.replyData);
+      // }
+
+      return {
+        data: updatedData,
+      };
+    }
+
+    case "ADD_SUBREPLY": {
+      let updatedData = Object.assign({}, state.data);
       let { comments } = updatedData;
 
       const existingIdIndex = comments.findIndex(
         (item) => item.id === action.id
       );
       comments[existingIdIndex].replies.push(action.reply);
-
-      if (action.subId) {
-        const existingSubIdIndex = comments.findIndex(
-          (item) => item.id === action.id
-        );
-
-        comments[existingSubIdIndex].replies.push(action.replyData);
-      }
 
       return {
         data: updatedData,
@@ -226,29 +240,43 @@ const DataProvider: React.FC = (props) => {
     });
   };
 
+  const addSubReplyToData = (
+    reply: ReplyObjType,
+    id: number,
+    subId: number
+  ) => {
+    dispatchDataAction({
+      type: "ADD_SUBREPLY",
+      reply: reply,
+      id: id,
+      subId: subId,
+    });
+  };
+
   const addCommentToData = (commentData: CommentObjType) => {
     dispatchDataAction({ type: "ADD_COMMENT", commentData: commentData });
   };
 
-  const updateData = (updatedContent: string, id: string, subId: string) => {
+  const updateData = (updatedContent: string, id: number, subId: number) => {
     dispatchDataAction({ type: "UPDATE", updatedContent, id, subId });
   };
 
-  const increaseScore = (id: string, subId: string) => {
+  const increaseScore = (id: number, subId: number) => {
     dispatchDataAction({ type: "INCREASE_SCORE", id, subId });
   };
 
-  const decreaseScore = (id: string, subId: string) => {
+  const decreaseScore = (id: number, subId: number) => {
     dispatchDataAction({ type: "DECREASE_SCORE", id, subId });
   };
 
-  const deleteData = (id: string, subId: string) => {
+  const deleteData = (id: number, subId: number) => {
     dispatchDataAction({ type: "DELETE", id, subId });
   };
 
   const dataContext: DataCtxType = {
     data: dataState.data,
     addReply: addReplyToData,
+    addSubReply: addSubReplyToData,
     addComment: addCommentToData,
     updateData,
     increaseScore,

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import shortid from "shortid";
 import timeData from "../../eval-time/TimeData";
 import juliusomo from "../../images/avatars/image-juliusomo.png";
@@ -42,19 +42,21 @@ const useEvaluateData = (
     setShowModal(false);
   };
 
-  const confirmDeleteComment = (id) => {
+  const confirmDeleteComment = (id: number) => {
     ctx.deleteData(id);
 
     setShowModal(false);
   };
 
-  const confirmDeleteReply = (id, subId) => {
+  const confirmDeleteReply = (id: number, subId: number) => {
     ctx.deleteData(id, subId);
     setShowModal(false);
   };
   // let content;
 
-  const submitCommentDataHandler = (event) => {
+  const submitCommentDataHandler = (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
     // console.log(event.target[0].value);
     // setEnteredValue(event.target[0].value);
@@ -68,7 +70,7 @@ const useEvaluateData = (
     }
 
     const commentObj = {
-      id: shortid.generate(),
+      id: Math.random() * Date.now(),
 
       content: enteredValue,
       createdAtDate: timeData(),
@@ -88,7 +90,11 @@ const useEvaluateData = (
     setEnteredValue("");
   };
 
-  const submitData = (repliedTo, replyId, event) => {
+  const submitData = (
+    repliedTo: string,
+    replyId: number,
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
     // content = event.target[0].value;
     if (
@@ -101,7 +107,7 @@ const useEvaluateData = (
 
     // content = content.replace(defaultValue, "");
     const replyObj: ReplyObjType = {
-      id: shortid.generate(),
+      id: Math.random() * Date.now(),
       content: enteredValue,
       createdAtDate: timeData(),
       score: 0,
@@ -117,13 +123,57 @@ const useEvaluateData = (
     };
 
     ctx.addReply(replyObj, replyId);
+
     setShowReplyBox(false);
     // setReply((prev) => prev + reply);
     // setUpdatedReply((prev) => [...prev, reply]);
     // setReply("");
+    setEnteredValue("");
   };
 
-  const updateComment = (id, event) => {
+  const submitSubData = (
+    repliedTo: string,
+    replyId: number,
+    subId: number,
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+
+    if (
+      enteredValue.length === 0 ||
+      enteredValue === " " ||
+      enteredValue === ""
+    ) {
+      return null;
+    }
+
+    const replyObj: ReplyObjType = {
+      id: Math.random() * Date.now(),
+      content: enteredValue,
+      createdAtDate: timeData(),
+      score: 0,
+      replyingTo: repliedTo,
+      user: {
+        image: {
+          png: juliusomo,
+          webp: "./images/avatars/image-juliusomo.webp",
+          alt: "image of Julius Omo",
+        },
+        username: "juliusomo",
+      },
+    };
+
+    ctx.addSubReply(replyObj, replyId, subId);
+
+    setShowReplyBox(false);
+
+    setEnteredValue("");
+  };
+
+  const updateComment = (
+    id: number,
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
     // setReply((prev) => prev + reply);
     // setUpdatedReply(reply);
@@ -148,7 +198,12 @@ const useEvaluateData = (
   //   setShowEditBox(false);
   // };
 
-  const updateReply = (content, id, subId, event) => {
+  const updateReply = (
+    content: string,
+    id: number,
+    subId: number,
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
     content = event.target[0].value;
     if (content.trim().length === 0 || content === replyingToEdited) {
@@ -159,19 +214,19 @@ const useEvaluateData = (
     setShowEditBox(false);
   };
 
-  const increaseCommentScore = (id) => {
+  const increaseCommentScore = (id: number) => {
     ctx.increaseScore(id);
   };
 
-  const decreaseCommentScore = (id) => {
+  const decreaseCommentScore = (id: number) => {
     ctx.decreaseScore(id);
   };
 
-  const increaseReplyScore = (id, subId) => {
+  const increaseReplyScore = (id: number, subId: number) => {
     ctx.increaseScore(id, subId);
   };
 
-  const decreaseReplyScore = (id, subId) => {
+  const decreaseReplyScore = (id: number, subId: number) => {
     ctx.decreaseScore(id, subId);
   };
 
@@ -191,6 +246,7 @@ const useEvaluateData = (
     confirmDeleteReply,
     submitCommentDataHandler,
     submitData,
+    submitSubData,
     updateComment,
     updateReply,
     increaseCommentScore,

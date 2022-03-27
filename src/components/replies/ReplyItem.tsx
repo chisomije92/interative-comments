@@ -3,7 +3,17 @@ import { ReactComponent as ReplyIcon } from "../../images/icon-reply.svg";
 
 import classes from "./ReplyItem.module.css";
 
-const ReplyItem = (props) => {
+const ReplyItem: React.FC<{
+  isCurrentUser?: boolean;
+  score: number;
+  src: string;
+  alt: string;
+  username: string;
+  createdAt: string;
+  onIncrease: () => void;
+  onDecrease: () => void;
+  onClick: () => void;
+}> = (props) => {
   return (
     <>
       <div className={classes["buttonDiv"]}>

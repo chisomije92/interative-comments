@@ -8,7 +8,7 @@ import classes from "./Comment.module.css";
 
 const Comment: React.FC<{
   content?: string;
-  value?: string;
+  value: string;
   modifyClass?: boolean;
   alterClass?: boolean;
   mainComment?: boolean;

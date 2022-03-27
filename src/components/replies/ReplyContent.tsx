@@ -1,6 +1,9 @@
 import classes from "./ReplyContent.module.css";
 
-const ReplyContent = (props) => {
+const ReplyContent: React.FC<{
+  replyingTo?: string;
+  content: string;
+}> = (props) => {
   return (
     <div className={classes.reply}>
       <p>

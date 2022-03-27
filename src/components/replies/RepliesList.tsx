@@ -1,9 +1,15 @@
 import classes from "./RepliesList.module.css";
 import formatTime from "../../eval-time/FormatTime";
 import ReplyListItem from "./ReplyListItem";
+import { ReplyObjType } from "../interface-store/Interfaces";
 
-const RepliesList = (props) => {
-  let isCurrentUser;
+const RepliesList: React.FC<{
+  replies: ReplyObjType[];
+  currentUser: string;
+  image: string;
+  id: number;
+}> = (props) => {
+  let isCurrentUser: boolean;
 
   return (
     <ul className={classes["replies--ul"]}>
@@ -26,7 +32,6 @@ const RepliesList = (props) => {
             image={props.image}
             commentId={props.id}
             replyId={reply.id}
-            defaultValue={`@${reply.user.username}`}
           />
         </li>
       ))}

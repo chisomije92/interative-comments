@@ -1,30 +1,53 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import ReplyItem from "./ReplyItem";
 import Modal from "../UI/Modal";
 import ReplyContent from "./ReplyContent";
-import Comment from "../comments/comment-box/Comment.tsx";
+import Comment from "../comments/comment-box/Comment";
 import CardGrid from "../UI/CardGrid";
 import Card from "../UI/Card";
 import ReplyItemUser from "./ReplyItemUser";
 import DataContext from "../../store/data-context";
 import useEvaluateData from "../hooks/use-evaluateData";
 
-const ReplyListItem = (props) => {
+const ReplyListItem: React.FC<{
+  replyingToEdited: string;
+  commentId: number;
+  replyId: number;
+  isCurrentUser: boolean;
+  score: number;
+  src: string;
+  alt: string;
+  username: string;
+  createdAtUser: string;
+  replyingTo: string;
+  content: string;
+  image: string;
+
+  createdAtDate: string;
+}> = (props) => {
   const dataCtx = useContext(DataContext);
   const {
     showReplyBox,
     showEditBox,
     showModal,
+    enteredValue,
+    updatedReply,
+    setEnteredValue,
+    setUpdatedReply,
     toggleEditBox: toggleEditBoxHandler,
     toggleReplyBox: toggleReplyBoxHandler,
     deleteData: deleteReplyHandler,
     cancelDelete: cancelDeleteHandler,
     confirmDeleteReply: confirmDeleteReplyHandler,
-    submitData: submitReplyHandler,
+    submitSubData: submitReplyHandler,
     updateReply: updateReplyHandler,
     increaseReplyScore: increaseScoreHandler,
     decreaseReplyScore: decreaseScoreHandler,
-  } = useEvaluateData(dataCtx, props.defaultValue, props.replyingToEdited);
+  } = useEvaluateData(dataCtx, props.replyingToEdited);
+
+  useEffect(() => {
+    setUpdatedReply(`${props.replyingToEdited} ${props.content}`);
+  }, [props.content, props.replyingToEdited, setUpdatedReply]);
 
   return (
     <>
@@ -66,11 +89,14 @@ const ReplyListItem = (props) => {
         <Card modified>
           <Comment
             image={props.image}
-            defaultValue={props.defaultValue}
+            value={enteredValue}
+            onChange={(e) => setEnteredValue(e.target.value)}
+            // defaultValue={props.defaultValue}
             onSubmit={submitReplyHandler.bind(
               null,
               props.username,
-              props.commentId
+              props.commentId,
+              props.replyId
             )}
           >
             REPLY
@@ -119,7 +145,8 @@ const ReplyListItem = (props) => {
           <Card newClass>
             <Comment
               modifyClass
-              defaultValue={`${props.replyingToEdited} ${props.content}`}
+              value={updatedReply}
+              onChange={(e) => setUpdatedReply(e.target.value)}
               onUpdate={updateReplyHandler.bind(
                 null,
                 props.username,
