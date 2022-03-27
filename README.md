@@ -11,7 +11,6 @@ This is a solution to the [Interactive comments section challenge on Frontend Me
 
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
 
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
@@ -44,16 +43,11 @@ Users should be able to:
 - CSS Grid
 - [React](https://reactjs.org/) - JS library
 - [CSS Modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) - For styles
+- [Typescript](https://www.typescriptlang.org/docs/handbook/react.html) - For type safety
 
 ### What I learned
 
-This project aided me in gaining practice with the the use of the React library. Most particularly, it gave me an opportunity to solidify my knowledge on React context API, Custom Hooks and useReducer Hook.
-
-### Continued development
-
-I aim to delve further and acquire more knowledge and practice with use of NextJs framework and Typescript.
-
-I aim to delve further and acquire more knowledge and practice with use of NextJs framework and Typescript.
+This project aided me in gaining practice with the the use of the React library. Most particularly, it gave me an opportunity to solidify my knowledge on React context API, Custom Hooks and useReducer Hook. Also, I was able to utilize my knowledge of typescript to ensure type models and safety in a bid to minimize and eradicate errors when receiving or updating data locally.
 
 ## Author
 
