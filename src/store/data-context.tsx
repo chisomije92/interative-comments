@@ -13,7 +13,7 @@ const DataContext = React.createContext<DataCtxType>({
     comments: [],
   },
   addReply: (reply, id) => {},
-  addSubReply: (reply, id, subid) => {},
+  addSubReply: (reply, id, subId) => {},
   addComment: (comment) => {},
   updateData: (updatedContent, id, subId) => {},
   increaseScore: (id, subId) => {},

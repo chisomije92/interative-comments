@@ -40,10 +40,8 @@ const CommentsList: React.FC = () => {
                 username={comment.user.username}
                 createdAt={comment.createdAt}
                 createdAtDate={formatTime(comment.createdAtDate)}
-                // replyingTo={comment.user.username}
                 content={comment.content}
                 image={juliusomo}
-                // defaultValue={`@${comment.user.username}`}
               />
 
               {comment.replies.length > 0 && (

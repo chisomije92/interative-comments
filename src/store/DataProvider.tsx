@@ -57,7 +57,7 @@ const dataReducer = (
       };
     }
 
-    case "ADD_SUBREPLY": {
+    case "ADD_SUB-REPLY": {
       let updatedData = Object.assign({}, state.data);
       let { comments } = updatedData;
 
@@ -198,7 +198,7 @@ const DataProvider: React.FC = (props) => {
     localStorage.setItem("data", JSON.stringify(data));
   }, [data]);
 
-  const addReplyToData = (reply, id) => {
+  const addReplyToData = (reply: ReplyObjType, id: number) => {
     dispatchDataAction({
       type: "ADD_REPLY",
       reply: reply,
@@ -212,7 +212,7 @@ const DataProvider: React.FC = (props) => {
     subId: number
   ) => {
     dispatchDataAction({
-      type: "ADD_SUBREPLY",
+      type: "ADD_SUB-REPLY",
       reply: reply,
       id: id,
       subId: subId,

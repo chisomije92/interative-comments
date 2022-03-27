@@ -16,7 +16,7 @@ const ReplyItemUser: React.FC<{
   createdAt?: string;
   createdAtDate: string;
   className?: string;
-  onIncrease?: (id: string) => void;
+  onIncrease?: () => void;
   onEdit: () => void;
   onDelete: () => void;
   onDecrease?: () => void;
