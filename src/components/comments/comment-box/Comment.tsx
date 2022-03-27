@@ -1,10 +1,6 @@
 import React from "react";
-// import classes from "./Comment.module.css";
-import classes from "./Comment.module.css";
 
-// interface FormEventCustom extends FormEventHandler, HTMLTextAreaElement {
-//   (content: string, id: string, event: React.FormEvent<HTMLFormElement>): void;
-// }
+import classes from "./Comment.module.css";
 
 const Comment: React.FC<{
   content?: string;
@@ -14,16 +10,6 @@ const Comment: React.FC<{
   mainComment?: boolean;
   image?: string;
   width?: string;
-
-  // onSubmit?: React.FormEventHandler<
-  //   (
-  //     content: string,
-  //     id: string,
-  //     event: React.FormEvent<HTMLFormElement>
-  //   ) => void
-  // >;
-  // onSubmit?: FormEventCustom;
-  // onUpdate?: FormEventCustom;
   onSubmit?: React.FormEventHandler<HTMLFormElement>;
   onUpdate?: React.FormEventHandler<HTMLFormElement>;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
@@ -63,7 +49,6 @@ const Comment: React.FC<{
         <textarea
           className={classes["comment__textarea"]}
           placeholder="Add a Comment..."
-          // defaultValue={props.defaultValue ? props.defaultValue : null}
           value={props.value ? props.value : ""}
           onChange={props.onChange ? props.onChange : null}
         />

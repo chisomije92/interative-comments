@@ -10,32 +10,6 @@ import {
 
 const defaultDataState: {
   data: DataObjType;
-  // data: {
-  //   currentUser: {
-  //     image: {
-  //       png: string;
-  //       webp: string;
-  //     };
-  //     username: string;
-  //   };
-  // comments: {
-  //   id: number | string;
-  //   content: string;
-  //   createdAt: string;
-  //   createdAtDate?: string;
-  //   score: number;
-  //   user: {
-  //     image: {
-  //       png: string;
-  //       webp: string;
-  //       alt: string;
-  //     };
-  //     username: string;
-  //   };
-  //   replies: ReplyObjType[];
-  // }[];
-  // comments: CommentObjType[];
-  // };
 } = {
   data: data,
 };
@@ -71,20 +45,12 @@ const dataReducer = (
       let updatedData = Object.assign({}, state.data);
 
       let { comments } = updatedData;
-      // console.log(comments);
+
       const existingIdIndex = comments.findIndex(
         (item) => item.id === action.id
       );
 
       comments[existingIdIndex].replies.push(action.reply);
-
-      // if (action.subId) {
-      // const existingSubIdIndex = comments.findIndex(
-      //   (item) => item.id === action.id
-      // );
-
-      // comments[existingSubIdIndex].replies.push(action.replyData);
-      // }
 
       return {
         data: updatedData,

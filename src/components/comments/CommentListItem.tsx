@@ -81,7 +81,6 @@ const CommentListItem: React.FC<{
             onChange={(e) => setEnteredValue(e.target.value)}
             image={props.image}
             onSubmit={submitReplyHandler.bind(null, props.username, props.id)}
-            // defaultValue={`${props.defaultValue}`}
           >
             REPLY
           </Comment>
