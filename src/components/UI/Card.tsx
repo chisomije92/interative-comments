@@ -1,6 +1,11 @@
 import classes from "./Card.module.css";
 
-const Card = (props) => {
+const Card: React.FC<{
+  altered?: boolean;
+  modified?: boolean;
+  newClass?: boolean;
+  changedClass?: boolean;
+}> = (props) => {
   let cssClasses = [classes["comment--container"]];
 
   if (props.altered) {

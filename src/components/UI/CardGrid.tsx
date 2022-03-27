@@ -1,6 +1,12 @@
 import classes from "./CardGrid.module.css";
 
-const CardGrid = (props) => {
+const CardGrid: React.FC<{
+  addedClass?: boolean;
+  modified?: boolean;
+  altered?: boolean;
+  currentUserClass?: boolean;
+  gridContainerMod?: boolean;
+}> = (props) => {
   let cssClasses = [];
 
   if (props.addedClass) {
